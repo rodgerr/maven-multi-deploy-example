@@ -17,9 +17,29 @@ jobs:
           java-version: '22'
           distribution: 'temurin'
 
-      - name: Build
+      - name: Build and Deploy to GitHub
         run: mvn deploy
         env:
           GITHUB_TOKEN: ${{ github.token }}
+
+
+      - name: Setup - Maven settings
+        uses: s4u/maven-settings-action@64e42c454dbd42ef6370ac8539685755aedd205b # v3.1.0
+        with:
+          githubServer: false
+          servers: >-
+            [
+              {
+                  "id": "repsy",
+                  "username": "${{ secrets.REPSY_USER }}",
+                  "password": "${{ secrets.REPSY_PASSWORD }}"
+              },
+            ]
+
+      - name: Deploy to Repsy
+        run:  mvn deploy:deploy-file -Prepsy-deploy
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
 
 
