@@ -33,7 +33,7 @@ jobs:
                   "id": "repsy",
                   "username": "${{ secrets.REPSY_USER }}",
                   "password": "${{ secrets.REPSY_PASSWORD }}"
-              },
+              }
             ]
 
       - name: Deploy to Repsy
