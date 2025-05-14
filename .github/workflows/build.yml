@@ -37,9 +37,7 @@ jobs:
             ]
 
       - name: Deploy to Repsy
-        run:  mvn deploy:deploy-file -Prepsy-deploy
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        run:  mvn deploy:deploy -Prepsy-deploy
 
 
 

@@ -29,6 +29,19 @@
 		</repository>
 	</distributionManagement>
 
+	<profiles>
+		<!-- repsy Deployment -->
+		<profile>
+			<id>repsy-deploy</id>
+			<distributionManagement>
+				<repository>
+					<id>repsy</id>
+					<name>Maven Repository on Repsy</name>
+					<url>https://repo.repsy.io/mvn/rodger_stepbeyond/sample-repo</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
 
 	<dependencies>
 		<dependency>
